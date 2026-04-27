@@ -18,36 +18,36 @@ export class ApiService {
 
   // Bicycles
   getBicycles(): Observable<any[]> {
-    return this.http.get<any>(`${this.API}/bicycles`, { headers: this.headers }).pipe(map(res => res.data));
+    return this.http.get<any>(`${this.API}/bicycles`, { headers: this.headers }).pipe(map((res: any) => res.data));
   }
 
   createBicycle(bicycle: any): Observable<any> {
-    return this.http.post<any>(`${this.API}/bicycles`, bicycle, { headers: this.headers }).pipe(map(res => res.data));
+    return this.http.post<any>(`${this.API}/bicycles`, bicycle, { headers: this.headers }).pipe(map((res: any) => res.data));
   }
 
   updateBicycle(id: string, bicycle: any): Observable<any> {
-    return this.http.put<any>(`${this.API}/bicycles/${id}`, bicycle, { headers: this.headers }).pipe(map(res => res.data));
+    return this.http.put<any>(`${this.API}/bicycles/${id}`, bicycle, { headers: this.headers }).pipe(map((res: any) => res.data));
   }
 
   deleteBicycle(id: string): Observable<any> {
-    return this.http.delete<any>(`${this.API}/bicycles/${id}`, { headers: this.headers }).pipe(map(res => res.data));
+    return this.http.delete<any>(`${this.API}/bicycles/${id}`, { headers: this.headers }).pipe(map((res: any) => res.data));
   }
 
   reactivateBicycle(id: string): Observable<any> {
-    return this.http.post<any>(`${this.API}/bicycles/${id}/reactivate`, {}, { headers: this.headers }).pipe(map(res => res.data));
+    return this.http.post<any>(`${this.API}/bicycles/${id}/reactivate`, {}, { headers: this.headers }).pipe(map((res: any) => res.data));
   }
 
   // Users
   getUsers(): Observable<any[]> {
-    return this.http.get<any>(`${this.API}/users`, { headers: this.headers }).pipe(map(res => res.data));
+    return this.http.get<any>(`${this.API}/users`, { headers: this.headers }).pipe(map((res: any) => res.data));
   }
 
   topUpUser(id: string, amount: number): Observable<any> {
-    return this.http.put<any>(`${this.API}/users/${id}/balance`, { amount }, { headers: this.headers }).pipe(map(res => res.data));
+    return this.http.put<any>(`${this.API}/users/${id}/balance`, { amount }, { headers: this.headers }).pipe(map((res: any) => res.data));
   }
 
   // Bookings
   getBookings(): Observable<any[]> {
-    return this.http.get<any>(`${this.API}/bookings`, { headers: this.headers }).pipe(map(res => res.data));
+    return this.http.get<any>(`${this.API}/bookings`, { headers: this.headers }).pipe(map((res: any) => res.data));
   }
 }

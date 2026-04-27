@@ -145,7 +145,7 @@ export class BicyclesPageComponent implements OnInit {
   }
 
   loadBicycles() {
-    this.api.getBicycles().subscribe(res => this.bicycles = res);
+    this.api.getBicycles().subscribe((res: any) => this.bicycles = res);
   }
 
   openModal() {
@@ -179,7 +179,7 @@ export class BicyclesPageComponent implements OnInit {
           this.loadBicycles();
           this.closeModal();
         },
-        error: (err) => alert('Error updating bicycle: ' + (err.error?.message || err.message))
+        error: (err: any) => alert('Error updating bicycle: ' + (err.error?.message || err.message))
       });
     } else {
       this.api.createBicycle(this.currentBicycle).subscribe({
@@ -188,7 +188,7 @@ export class BicyclesPageComponent implements OnInit {
           this.loadBicycles();
           this.closeModal();
         },
-        error: (err) => alert('Error adding bicycle: ' + (err.error?.message || err.message))
+        error: (err: any) => alert('Error adding bicycle: ' + (err.error?.message || err.message))
       });
     }
   }
