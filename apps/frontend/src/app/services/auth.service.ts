@@ -9,9 +9,9 @@ export class AuthService {
 
   constructor(private http: HttpClient) {}
 
-  login(username: string, password: string): Observable<{ token: string }> {
-    return this.http.post<{ token: string }>(`${this.API}/api/admin/login`, { username, password }).pipe(
-      tap(res => localStorage.setItem(this.TOKEN_KEY, res.token))
+  login(username: string, password: string): Observable<any> {
+    return this.http.post<any>(`${this.API}/api/admin/login`, { username, password }).pipe(
+      tap(res => localStorage.setItem(this.TOKEN_KEY, res.data.token))
     );
   }
 
@@ -20,7 +20,12 @@ export class AuthService {
   }
 
   getToken(): string | null {
-    return localStorage.getItem(this.TOKEN_KEY);
+    const token = localStorage.getItem(this.TOKEN_KEY);
+    if (token === 'undefined') {
+      this.logout();
+      return null;
+    }
+    return token;
   }
 
   isLoggedIn(): boolean {

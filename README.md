@@ -13,7 +13,7 @@ Sistem manajemen terpusat untuk aplikasi GoBicycle. Terdiri dari **Backend API (
 ## 🚀 Panduan Setup
 
 ### 1. Persiapan Backend (Hapi.js)
-1.  Masuk ke folder: `cd apps/backend`
+1.  Masuk ke folder: `cd apps/backencd `
 2.  Instal dependensi: `npm install`
 3.  Buat file `.env` berdasarkan kredensial Supabase Anda:
     ```env
